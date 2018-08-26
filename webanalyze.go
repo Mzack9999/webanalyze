@@ -8,6 +8,7 @@ import (
 )
 
 var (
+	m sync.Mutex
 	// AppDefs provides access to the unmarshalled apps.json file
 	AppDefs *AppsDefinition
 )

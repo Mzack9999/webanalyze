@@ -118,6 +118,13 @@ func DownloadFile(from, to string) error {
 
 // load apps from file
 func loadApps(filename string) error {
+	defer m.Unlock()
+	m.Lock()
+
+	if AppDefs != nil {
+		return nil
+	}
+
 	f, err := os.Open(filename)
 	if err != nil {
 		return err
